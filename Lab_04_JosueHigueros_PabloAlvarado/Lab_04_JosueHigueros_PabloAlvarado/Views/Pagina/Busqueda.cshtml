@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Lab_04_JosueHigueros_PabloAlvarado.Models.Classes.Pagina>
+
+@{
+    ViewBag.Title = "Busqueda";
+}
+
+@Html.Raw(TempData["msg"])
+<h2>Busqueda</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div id="contenedor"></div>
+        <h4>Seleccione una Opcion para Buscar</h4>
+        <form method="get" action="@Url.Action("Busqueda", "Pagina")">
+            <label for="search">Buscar Por:</label>
+            <select name="Tipo" id="Tipo">
+                <option value="Pais">Pais</option>
+            </select>
+            <input type="text" name="Search" id="Search" />
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

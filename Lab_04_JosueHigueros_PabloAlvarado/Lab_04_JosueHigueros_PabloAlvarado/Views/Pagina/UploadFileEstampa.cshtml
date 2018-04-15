@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Cargar Archivo";
+}
+
+<h2>Subir Archivo</h2>
+@using (Html.BeginForm("UploadFileEstampa", "Pagina", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary();
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <h2 align="center">Agregar con Archivo</h2>
+            <p align="center">
+                Para agregar Estampitas a través de un archivo .json
+            </p>
+
+            <div align="center" class="form-group">
+                <input type="file" name="file" value="Examinar" class="btn-default" style="color:transparent" />
+            </div>
+            <div align="center" class="form-group">
+                <button type="submit" class="btn btn-default">Subir archivo</button>
+            </div>
+
+        </div>
+    </div>
+}

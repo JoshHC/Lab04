@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Lab_04_JosueHigueros_PabloAlvarado.Models.Classes.Pagina>
+
+@{
+    ViewBag.Title = ViewBag.Message;
+}
+
+<h2>@ViewBag.Message</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Coleccionadas:
+        </th>
+        <th>
+            Cambios:
+        </th>
+        <th>
+            Faltantes:
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+           @for (int i = 0; i < item.coleccionadas.Count; i++)
+           {
+             @Html.DisplayFor(modelItem => item.coleccionadas[i]);
+
+               if(i != item.coleccionadas.Count-1)
+               {
+                   <a>-</a>
+               }
+           }
+        </td>
+        <td>
+            @for (int i = 0; i < item.cambios.Count; i++)
+           {
+               @Html.DisplayFor(modelItem => item.cambios[i]);
+
+               if(i != item.cambios.Count-1)
+               {
+                   <a>-</a>
+               }
+           }
+        </td>
+        <td>
+            @for (int i = 0; i < item.faltantes.Count; i++)
+           {
+              @Html.DisplayFor(modelItem => item.faltantes[i]);
+
+               if(i != item.faltantes.Count-1)
+               {
+                   <a>-</a>
+               }
+           }
+        </td>
+        <td>
+        <td>
+            @Html.ActionLink("Modificar", "Modificar", new {NuevaPaginai = Model, Mensaje = ViewBag.Message})
+        </td>
+    </tr>
+    }
+
+</table>
